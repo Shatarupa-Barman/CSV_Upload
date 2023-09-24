@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- External CSS stylesheets -->
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Links for Font-Awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" 
+    integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Noty. js library for notifications -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" 
+    integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    
+        <div id="home">
+    
+            <!-- Form to add a CSV file and header section -->
+            <div id="upload-form">
+                <header>
+                    <h1>CSV Reader</h1>
+                    <br>
+                    <p>Upload CSV file and view it in tabular form</p>
+                </header>
+                <form action="/add" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="csvfile"  accept=".csv" required>
+                    <input type="submit">
+                </form>
+            </div>
+            
+            <!-- Display all the uploaded files -->
+            <div id="files">
+                <h1>Uploaded files</h1>
+                <% files.forEach(file => { %>
+                    <div class="file">
+                        <!-- Display the file name -->
+                        <p class="file-name"><%= file.filename %><p>
+            
+                        <!-- Link to view the file -->
+                        <a href="/display/<%= file.id %>?page=1">
+                            <p><i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                            <!-- <p class="open">open</p> -->
+                        </a>
+
+                        <!-- Link to delete the file -->
+                        <a href="/delete/<%= file.id %>">
+                            <p class="delete"><i class="fa-solid fa-trash"></i><p>
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+    
+        </div>    
+    
+
+    <!-- JavaScript code for displaying flash messages using the Noty library -->
+    <script>
+        // Display success flash messages
+        <% if(flash.success && flash.success.length > 0) { %>
+            new Noty({
+                theme: 'metroui',
+                text: "<%= flash.success %>",
+                type: 'success',
+                layout: 'topRight',
+                timeout: 1000
+            }).show();
+        <% } %>
+
+        // Display error flash messages
+        <% if(flash.error && flash.error.length > 0) { %>
+            new Noty({
+                theme: 'metroui',
+                text: "<%= flash.error %>",
+                type: 'error',
+                layout: 'topRight',
+                timeout: 1000
+            }).show();
+        <% } %>
+    </script>
+</body>
+</html>

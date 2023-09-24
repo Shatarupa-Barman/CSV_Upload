@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csv-files</title>
+
+    <!-- Link to the external CSS stylesheet for viewcsv -->
+    <link rel="stylesheet" href="/css/viewcsv.css">
+</head>
+<body>
+    <div id="csv-view">
+
+        <!-- View Header Section -->
+        <div id="view-top">
+            <div id="view-header">
+                <!-- Link to go back to the homepage -->
+                <a href="/" id="homepage-link"> <i class="fa-solid fa-arrow-left"></i> &nbsp; Go to Homepage</a>
+                <!-- Display the CSV filename -->
+                <h1><%= csv.filename %></h1>
+            </div>
+            
+            <!-- Search box -->
+            <div id="search-bar">
+                <input type="text" name="search" placeholder="Search...">
+            </div>
+        </div>
+    
+        <!-- Table to display CSV data -->
+        <table>
+            <!-- Table Headers -->
+            <% (header).forEach((key, i) => { %>
+                <th onclick="sortTable(<%=i%>)">
+                    <%= key %>
+                </th>
+            <% }) %>
+    
+            <!-- Table Rows -->
+           <% data.forEach((row, index) => { %>
+                
+                <tr>
+                    <% Object.keys(row).forEach(key => { %>
+                        <td>
+                            <%= row[key] %>
+                        </td>
+                    <% }) %>
+                </tr>
+    
+           <% }) %>
+        </table>
+    
+        <!-- Pagination Section: Display current, previous, and next page number -->
+        <div id="pagination">
+    
+            <!-- Link to the previous page if available -->
+            <% if(pageInfo.prev){ %>
+                <a href="/display/<%= id %>?page=<%= pageInfo.prev %>" id="prev">
+                    <p><%= pageInfo.prev %></p>
+                </a>
+            <% } %>
+            
+            <!-- Display the current page number -->
+            <p id="current"><%= pageInfo.current %></p>
+            
+            <!-- Link to the next page if available -->
+            <% if(pageInfo.next) { %>
+                <a href="/display/<%= id %>?page=<%= pageInfo.next %>" id="next">
+                    <p><%= pageInfo.next %></p>
+                </a>
+            <% } %>
+    
+        </div>
+    
+    </div>
+    
+    <!-- Include JavaScript file for handling CSV file viewer functionality -->
+    <script src="/js/fileviewer.js"></script>
+</body>
+</html>

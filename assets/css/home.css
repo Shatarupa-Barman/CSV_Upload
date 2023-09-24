@@ -1,0 +1,116 @@
+/* Apply some default styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the HTML and body elements */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    background-color: #7161ef;
+}
+
+/* Styles for the #home section */
+#home {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+}
+
+/* Styles for the header element */
+header {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Styles for the #upload-form section */
+#upload-form {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Styles for forms within #upload-form */
+#upload-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+/* Styles for file input within forms */
+#upload-form form input[type="file"] {
+    font-size: 1.2rem;
+}
+
+/* Styles for submit button within forms */
+#upload-form form input[type="submit"] {
+    font-size: 1rem;
+    padding: 7px 20px;
+    background-color: #069e2d;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Hover effect for submit button */
+#upload-form form input[type="submit"]:hover {
+    background-color: #358600;
+    cursor: pointer;
+}
+
+/* Styles for the #files section */
+#files {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Styles for the title within #files */
+#files h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for individual files in the list */
+.file {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 15px;
+    background-color: #350082;
+    border-radius: 10px;
+}
+
+/* Styles for the file name within .file */
+.file .file-name {
+    width: 300px;
+}
+
+/* Styles for the delete link within .file */
+.file a {
+    width: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for the delete icon within .file a */
+.file a .delete i {
+    color: #ff002b!important;
+}
+
+/* Hover effect for the delete icon */
+.file a .delete i:hover {
+    color: #990100!important;
+}

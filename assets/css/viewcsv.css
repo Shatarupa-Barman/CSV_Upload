@@ -1,0 +1,150 @@
+/* Apply some default styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the HTML and body elements */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    background-color: #f4ebe2;
+}
+
+/* Styles for the #csv-view section */
+#csv-view {
+    color: black;
+    padding: 20px 30px;
+    background-color: #f4ebe2;
+}
+
+/* Styles for the top portion of the #csv-view section */
+#view-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Styles for the view header within #view-top */
+#view-header {
+    width: 40%;
+}
+
+/* Styles for the header text within #view-header */
+#view-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding-top: 10px;
+    color: rgb(53, 53, 206);
+    text-decoration: underline;
+}
+
+/* Styles for the search bar */
+#search-bar {
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+/* Styles for the search input field */
+#search-bar input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+    width: 250px;
+}
+
+/* Remove outline when input is focused */
+#search-bar input:focus {
+    outline: none;
+}
+
+/* Styles for the table */
+table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Styles for table, table header, and table rows */
+table, th, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+/* Styles for table cells (td and th) */
+td, th {
+    padding: 10px;
+    min-width: 200px;
+    border-left: 1px solid black;
+}
+
+/* Styles for table header (th) */
+th {
+    background-color: rgb(6, 178, 6);
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* Styles for table rows (tr) */
+tr {
+    background-color: rgb(198, 216, 198);
+}
+
+/* Styles for the pagination section */
+#pagination {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin: auto;
+}
+
+/* Styles for the previous button (#prev) */
+#prev {
+    position: absolute;
+    left: 0%;
+}
+
+/* Styles for the next button (#next) */
+#next {
+    position: absolute;
+    right: 0%;
+}
+
+/* Styles for text within previous, next, and current buttons */
+#next p, #prev p {
+    color: black;
+    text-decoration: none;
+}
+
+/* Styles for the current page indicator (#current) */
+#current {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(70, 70, 236);
+    color: white;
+    border-radius: 50%;
+}
+
+/* Common styles for the previous, next, and current buttons */
+#prev, #next, #current {
+    font-size: 1.25rem;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+/* Styles for the homepage link */
+#homepage-link {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #e9345f;
+}
