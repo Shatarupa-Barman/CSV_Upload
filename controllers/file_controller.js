@@ -122,12 +122,8 @@ module.exports.displayCSV = async function (req, res) {
                     pageInfo.current = page;
 
                     // Slice data to show only 100 rows on a page
-                    if (page == 1) {
-                        data = data.slice(startIndex, endIndex - 1);
-                    } else {
-                        data = data.slice(startIndex - 1, endIndex - 1);
-                    }
-
+                    data = data.slice(startIndex, endIndex);
+                 
                     // Render the data in the 'viewcsv.ejs' template
                     return res.render('viewcsv.ejs', {
                         title: `CSV Reader | ${csv.filename.substring(0, csv.filename.lastIndexOf('.'))}`,
